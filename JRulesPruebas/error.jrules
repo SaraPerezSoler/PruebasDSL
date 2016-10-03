@@ -36,3 +36,27 @@ all Package which have{
 all Attribute which have{
 	one Class satisfy name type=lowerCase
 }satisfy is not empty;
+
+
+
+exists Class which name type= lowerCamelCase;
+
+exists Package; 
+
+exists Class satisfy have{
+	exists Attribute
+};
+
+exists Class satisfy have{
+	exists Attribute which name type= lowerCamelCase
+};
+
+all Class satisfy implements min=3 and max=2 interfaces;
+	
+one Class satisfy implements max=-1 interfaces;
+	
+exists Class satisfy implements min=-2 interfaces;
+	
+exists Method satisfy numParameters=3 and types=[];
+exists Method satisfy numParameters=3 and types=["casa"];
+exists Method satisfy numParameters=3 and types=["casa", "casa","casa","casa"];
