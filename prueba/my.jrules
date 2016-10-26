@@ -8,23 +8,23 @@ all Package satisfy name type=lowerCamelCase;
 
 exists Class 
 which modifiers:[(abstract)] 
-satisfy name equal 'Casa' and type= upperCamelCase;
+satisfy (name equal 'Casa' and name type= upperCamelCase);
 	
 exists Class 
 which modifiers: [(abstract)] 
-satisfy name type= upperCamelCase and equal 'Coche' ;
+satisfy (name type= upperCamelCase and name equal 'Coche') ;
 	
 all Class 
 which have {
 	one Attribute 
-	satisfy name contains 'id'
+	satisfy name contain 'id'
 }
 satisfy name like 'producto', English;
 
 exists Package satisfy have {
 	all Class satisfy (have {
 		all Method satisfy name start 'get' or is constructor
-	}and name ends 'Bean')
+	}and name end 'Bean')
 };
 
 all Interface satisfy name start 'I';
@@ -47,21 +47,19 @@ all Method satisfy is not empty;
 
 //Modifiers
 
-
 //Contains
 exists Package satisfy have {
 	all Class satisfy (have {
 		all Method satisfy name start 'get' or is constructor
-	}and name ends 'Bean')
+	}and name end 'Bean')
 };
-
 
 all Interface satisfy have{
 	exists Method satisfy modifiers: [(abstract)]
 };
 
 exists Enum satisfy have {
-	exists Attribute satisfy modifiers: [(Private) or (Public)]
+	exists Attribute satisfy modifiers: [(private) or (public)]
 };
 
 
@@ -102,7 +100,7 @@ exists Method satisfy is constructor;
 
 	//Algunas de las propiedades de los singleton
 exists Class satisfy (have{
-	all Method which is constructor satisfy modifiers: [(Private)]
+	all Method which is constructor satisfy modifiers: [(private)]
 }and have{
 	exists Method satisfy modifiers:[(static and final)]
 }and have{
